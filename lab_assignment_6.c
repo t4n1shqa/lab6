@@ -2,24 +2,24 @@
 #include <stdlib.h>
 
 
-int search(int numbers[], int low, int high, int value) 
+int search(int numbers[], int low, int high, int value) //binary search
 {
   if (low > high) {
     return -1;
   }
   
-  int middle = (low + high) / 2;
+  int middle = (low + high) / 2; //splits in half
   
   if (value > numbers[middle]){
     
-    return search(numbers, (middle + 1), high, value);
+    return search(numbers, (middle + 1), high, value); // if its high, set low index to middle + 1
     
   } else if (value < numbers[middle]){
     
-    return search(numbers, low, middle - 1, value);
+    return search(numbers, low, (middle - 1), value); //if its less, set high index to middle - 1
     
   } else{
-    return middle;
+    return middle; //returns the final number
   }
  	return -1;
 }
